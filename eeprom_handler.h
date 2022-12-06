@@ -5,7 +5,7 @@ Brief Description: Handles all eeprom functions on Host Side
 
 #pragma once
 
-void eeprom_write_byte(uint8_t *address, uint8_t data)
+void eeprom_write(uint8_t *address, uint8_t data)
     //Will write Data to the eeprom on specified address
 
 void eeprom_read(uint8_t *address)
