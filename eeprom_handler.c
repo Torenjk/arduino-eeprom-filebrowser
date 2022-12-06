@@ -14,7 +14,7 @@ const uint16_t EEPROM_SIZE = 1024;
 
 
 void 
-eeprom_write_byte(uint8_t *address, uint8_t data){
+eeprom_write(uint8_t *address, uint8_t data){
 //Safety check
 if (address >= EEPROM_SIZE){
     //Call an error handler here!! TODO
