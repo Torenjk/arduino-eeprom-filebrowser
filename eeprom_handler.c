@@ -50,11 +50,17 @@ where it will be presented like a file browser
 Each 8-Bit Address (so one cell) will equal one "file"
 */
 
+//Additional Note: writing while reading is very unstable so we kinda need something like a lockbit or so
+
 for (int i = 0; i < EEPROM_SIZE; i++){
       read_cell(EEPROM_BASE_ADDR++); //THIS WONT COMPILE NOW AS ITS JUST CALLING THE FUNCTION!!!!!
       //need to add a routine to work with the return value of read_cell
       //return value should be sent over USART including the address so we can map it into my programm then
     }  
+
+
+
+
 
 //TODO: Implement
 }
