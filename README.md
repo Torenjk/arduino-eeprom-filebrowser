@@ -6,3 +6,6 @@ Each "File" represents exactly one EEPROM Cell.
 
 Right now this in Development Stage and will be updated. 
 There is no support planned for different AVR Chips. 
+
+
+![plot](./ressources/mapping_preview.png)
