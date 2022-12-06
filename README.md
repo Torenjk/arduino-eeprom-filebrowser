@@ -9,5 +9,7 @@ There is no support planned for different AVR Chips.
 
 
 
-Screenshot:
+###### Screenshot of the testing version:
+
+
 ![Alt text](./ressources/mapping_preview.PNG?raw=true "Screenshot")
