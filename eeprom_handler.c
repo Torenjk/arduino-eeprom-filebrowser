@@ -8,13 +8,14 @@ const uint8_t E_MW_EN = 2; //Master Write Enable bit in EECR
 const uint8_t E_WR_E = 1;// Write Enable bit in EECR
 const uint8_t E_R_E = 0;// Read Enable bit in EECR
 
-// The size of the EEPROM memory, in bytes
+// The size of the EEPROM memory, in bytes but needs to be changed if the model has bigger EEPROM
 const uint16_t EEPROM_SIZE = 1024;
+const uint8_t *EEPROM_BASE_ADDR = 0x00; //This is just the Base address of the EEPROM which we will loop trough
 
 //EEPROM ADDRESS SPACE: 0x00 - 0x1F
 
 void 
-eeprom_write_byte(uint8_t *address, uint8_t data){
+eeprom_write(uint8_t *address, uint8_t data){
 //Safety check
 if (address >= EEPROM_SIZE){
     //Call an error handler here!! TODO
@@ -49,6 +50,11 @@ where it will be presented like a file browser
 Each 8-Bit Address (so one cell) will equal one "file"
 */
 
+for (int i = 0; i < EEPROM_SIZE; i++){
+      read_cell(EEPROM_BASE_ADDR++); //THIS WONT COMPILE NOW AS ITS JUST CALLING THE FUNCTION!!!!!
+      //need to add a routine to work with the return value of read_cell
+      //return value should be sent over USART including the address so we can map it into my programm then
+    }  
 
 //TODO: Implement
 }
