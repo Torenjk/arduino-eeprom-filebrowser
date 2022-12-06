@@ -41,3 +41,14 @@ if (address >= EEPROM_SIZE){
 }
 
 
+void
+map_eeprom(void){
+/*
+Maps the entire eeprom so that we can send it over serial to the Client
+where it will be presented like a file browser
+Each 8-Bit Address will equal one "file"
+*/
+
+
+//TODO: Implement
+}
