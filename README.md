@@ -8,4 +8,6 @@ Right now this in Development Stage and will be updated.
 There is no support planned for different AVR Chips. 
 
 
-![plot](./ressources/mapping_preview.png)
+
+Screenshot:
+![Alt text](./ressources/mapping_preview.PNG?raw=true "Screenshot")
