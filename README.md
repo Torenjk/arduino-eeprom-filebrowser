@@ -7,6 +7,7 @@ Each "File" represents exactly one EEPROM Cell.
 Right now this in Development Stage and will be updated. 
 There is no support planned for different AVR Chips. 
 
+The Code is also a bunch of mess right now, will be organized and documented properly later.
 
 
 ###### Screenshot of the testing version:
