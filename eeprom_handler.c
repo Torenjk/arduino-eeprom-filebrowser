@@ -11,7 +11,7 @@ const uint8_t E_R_E = 0;// Read Enable bit in EECR
 // The size of the EEPROM memory, in bytes
 const uint16_t EEPROM_SIZE = 1024;
 
-
+//EEPROM ADDRESS SPACE: 0x00 - 0x1F
 
 void 
 eeprom_write_byte(uint8_t *address, uint8_t data){
@@ -29,7 +29,7 @@ if (address >= EEPROM_SIZE){
 }
 
 void //maybe change to uint8_t so it will directly return the data
-eeprom_read(uint8_t *address){
+eeprom_read(uint8_t *address){ //maybe rename to read_cell? so we dont get confused as this only reads ONE cell
 //Safety check
 if (address >= EEPROM_SIZE){
     //Call an error handler here!! TODO
@@ -46,7 +46,7 @@ map_eeprom(void){
 /*
 Maps the entire eeprom so that we can send it over serial to the Client
 where it will be presented like a file browser
-Each 8-Bit Address will equal one "file"
+Each 8-Bit Address (so one cell) will equal one "file"
 */
 
 
