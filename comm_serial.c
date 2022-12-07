@@ -20,8 +20,26 @@ volatile uint8_t *data_reg = 0xC6; //USART I/O Data register (See page 159 of th
 void
 init_usart(){
     //Will init the usart communication by setting the registers to the needed values
+  // Set the baud rate to 9600
+
+
+/*
+    i used the following calculation and apparently it works..
+    16 MHz / (16 * 9600) - 1 = 103
+
+*/
+
+  *baud_rate_reg_high = 0;
+  *baud_rate_reg_low = 103;
+
+  // Set the USART0 to transmit and receive data
+  *control_status_reg_b = (1 << RXEN0) | (1 << TXEN0);
+
+  // Set the USART0 to use 8-bit frames and no parity
+  *control_status_reg_c = (1 << UCSZ01) | (1 << UCSZ00);
 
 }
+
 
 void
 parse_files(){
