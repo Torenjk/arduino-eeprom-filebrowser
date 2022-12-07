@@ -9,11 +9,12 @@ This file will handle all communication between the client and host
 //Have fun with that clusterfck
 
 
-volatile uint8_t *UB0H = 0xC5; //USART baud rate register high
-volatile uint8_t *UB0L = 0xC4; //USART baud rate register low
-volatile uint8_t *UC0B = 0xC1; //USART control and status Register n B (see Page 160 of the datasheet)
-volatile uint8_t *UC0C = 0xC2; //see Page 161 and 172 but its for setting the usart mode (SYNC, ASINC, MSPIM...)
-volatile uint8_t *U0 = 0xC6; //USART I/O Data register (See page 159 of the datasheet)
+volatile uint8_t *baud_rate_reg_high = 0xC5; //USART baud rate register high
+volatile uint8_t *baud_rate_reg_low = 0xC4; //USART baud rate register low
+volatile uint8_t *control_status_reg_a = 0xC0; //USART control and status Register n A
+volatile uint8_t *control_status_reg_b = 0xC1; //USART control and status Register n B (see Page 160 of the datasheet)
+volatile uint8_t *control_status_reg_c = 0xC2; //see Page 161 and 172 but its for setting the usart mode (SYNC, ASINC, MSPIM...)
+volatile uint8_t *data_reg = 0xC6; //USART I/O Data register (See page 159 of the datasheet)
 
 
 void
@@ -28,3 +29,18 @@ parse_files(){
 }
 
 //Todo: checksum generation on Client and Host side
+
+void
+send_msg(uint8_t msg_len, char msg[]){
+    for(int i = 0; i < MSG_LEN; i++){
+
+          while (!(*control_status_reg_a & (1 << 5)));
+          *data_reg = MSG[i];
+      }
+
+/*
+
+Usage: send_char(3, "TOM");
+Will send a message over USART0
+*/
+}
