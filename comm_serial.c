@@ -17,6 +17,20 @@ volatile uint8_t *control_status_reg_c = 0xC2; //see Page 161 and 172 but its fo
 volatile uint8_t *data_reg = 0xC6; //USART I/O Data register (See page 159 of the datasheet)
 
 
+bool
+init_eeprom_com(void){
+  //This will init communication and set up eeprom for access
+  //Call this function first before calling any other
+  
+  init_usart(); //does what it says
+
+  //Send init message to Client
+  send_msg(4, "init");
+
+  //Terminate message
+  send_msg(1, "~"); 
+}
+
 void
 init_usart(){
     //Will init the usart communication by setting the registers to the needed values
