@@ -64,10 +64,10 @@ parse_files(){
 
 void
 send_msg(uint8_t msg_len, char msg[]){
-    for(int i = 0; i < MSG_LEN; i++){
+    for(int i = 0; i < msg_len; i++){
 
           while (!(*control_status_reg_a & (1 << 5)));
-          *data_reg = MSG[i];
+          *data_reg = msg[i];
       }
 
 /*
